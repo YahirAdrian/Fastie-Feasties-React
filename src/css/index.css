@@ -1,69 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
 @import "tailwindcss";
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+@theme {
+  --color-primary: #CB0404;
+  --color-primary-50: #f5e5e5;
+  --color-primary-100: #e8cccc;
+  --color-primary-200: #d69999;
+  --color-primary-300: #c46666;
+  --color-primary-400: #b23333;
+  --color-primary-500: #CB0404;
+  --color-primary-600: #a20303;
+  --color-primary-700: #790202;
+  --color-primary-800: #500202;
+  --color-primary-900: #280101;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+  --color-secondary: #F4631E;
+  --color-secondary-50: #fdf4ed;
+  --color-secondary-100: #fce8db;
+  --color-secondary-200: #f8d1b7;
+  --color-secondary-300: #f5ba93;
+  --color-secondary-400: #f1a36f;
+  --color-secondary-500: #F4631E;
+  --color-secondary-600: #c94d17;
+  --color-secondary-700: #9e3a10;
+  --color-secondary-800: #732709;
+  --color-secondary-900: #481604;
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
+  --color-accent: #FF9F00;
+  --color-accent-50: #fff9f0;
+  --color-accent-100: #fff2e1;
+  --color-accent-200: #ffe5c2;
+  --color-accent-300: #ffd8a3;
+  --color-accent-400: #ffcb85;
+  --color-accent-500: #FF9F00;
+  --color-accent-600: #cc7f00;
+  --color-accent-700: #995f00;
+  --color-accent-800: #664000;
+  --color-accent-900: #332000;
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
+  --color-info: #309898;
+  --color-info-50: #ecf5f5;
+  --color-info-100: #d9ebeb;
+  --color-info-200: #b3d7d7;
+  --color-info-300: #8dc3c3;
+  --color-info-400: #67afaf;
+  --color-info-500: #309898;
+  --color-info-600: #277a7a;
+  --color-info-700: #1e5c5c;
+  --color-info-800: #153d3d;
+  --color-info-900: #0c1f1f;
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  --font-lilita: 'Lilita One', sans-serif;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.half-dvh {
+  height: 60dvh;
 }
+

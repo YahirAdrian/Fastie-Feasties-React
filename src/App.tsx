@@ -1,12 +1,22 @@
-
+import Header from "./components/Header"
+import Banner from "./components/Banner"
+import Search from "./components/Search"
+import ProductList from "./components/ProductList"
+import Footer from "./components/Footer"
 function App() {
 
   return (
     <>
-      <div className="text-lg">
-        <h2>Hello React</h2>
-      </div>
-    </>
+      <Header />
+      <Banner />
+      <Search />
+      <ProductList />
+      <ProductList />
+      <ProductList />
+      <ProductList />
+      <ProductList />
+      <Footer/>
+      </>
   )
 }
 

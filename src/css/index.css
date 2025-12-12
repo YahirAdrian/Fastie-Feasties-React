@@ -51,6 +51,8 @@
   --color-info-900: #0c1f1f;
 
   --font-lilita: 'Lilita One', sans-serif;
+
+  --shadow-left: -5px 0 15px 5px rgba(0, 0, 0, 0.3);
 }
 
 .half-dvh {

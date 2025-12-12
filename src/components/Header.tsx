@@ -2,19 +2,27 @@ import React from 'react';
 import logo from '../assets/logo/logo-128.png';
 import userIcon from '../assets/icons/user.png';
 
-const Header: React.FC = () => {
+interface HeaderProps {
+    setPanelOpen: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+const Header: React.FC <HeaderProps> = ({setPanelOpen} : HeaderProps) => {
 
   const [menuOpen, setMenuOpen] = React.useState(false);
     return (
         <header className='bg-primary flex justify-between p-2 fixed w-dvw z-1 shadow-xl shadow-black/30'>
           <div className='flex items-center gap-2'>
             <img src={logo} alt="Fastie-Feasties Logo" className='size-12 sm:size-16 shadow-2xl' />
-            <h1 className='font-lilita text-white text-lg sm:text-2xl md:text-4xl'>Fastie-Feasties</h1>
+            <h1 className='font-lilita text-white text-lg sm:text-2xl md:text-4xl'>Fastie-Feastie's</h1>
           </div>
           <nav className='px-4'>
             <ul className='full-menu justify-around items-center px-4 hidden sm:flex'>
               <li><a className='px-3 hover:text-amber-300 h-fit text-white font-bold text-sm md:text-xl' href='#products'>Productos</a></li>
-              <li><a className='px-3 hover:text-amber-300 h-fit text-amber-200 font-bold text-sm md:text-xl' href='/order'>Tu orden</a></li>
+              <li
+                onClick={()=> setPanelOpen(true)}
+              >
+                <a className='px-3 hover:text-amber-300 h-fit text-amber-200 font-bold text-sm md:text-xl' href='/order' onClick={e=> e.preventDefault()}>Tu orden</a>
+              </li>
               <li><a className='px-3 hover:text-amber-300 h-fit text-white font-bold text-sm md:text-xl' href='/about'>Acerca de</a></li>
               <li><a className='px-3 hover:text-amber-300 h-fit text-white font-bold text-sm md:text-xl' href='/profile' title='Perfil'><img src={userIcon} className='size-8' alt='Icono usuario'></img></a></li>
             </ul>
@@ -22,7 +30,11 @@ const Header: React.FC = () => {
 
             {/* Mobile menu */}
             <div className='flex sm:hidden items-center'>
-              <a className='px-3 text-amber-200 font-bold text-sm md:text-xl' href='/order'>Tu orden</a>
+              <li className='list-none'
+                onClick={()=> setPanelOpen(true)}
+              >
+                <a className='px-3 text-amber-200 font-bold text-sm md:text-xl' href='/order' onClick={e=> e.preventDefault()}>Tu orden</a>
+              </li>
               <button className='text-white p-2' onClick={() => setMenuOpen(!menuOpen)}>
               <svg className='w-6 h-6' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
                 <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M4 6h16M4 12h16M4 18h16' />
@@ -30,7 +42,7 @@ const Header: React.FC = () => {
               </button>
             </div>
 
-            <div className={`additional-mobile-menu absolute right-0 w-dvw overflow-hidden transition-all duration-800 ${menuOpen ? 'h-full' : 'h-0'}`}>
+            <div className={`additional-mobile-menu absolute right-0 w-dvw overflow-hidden transition-all duration-800 ${menuOpen ? 'h-100' : 'h-0'}`}>
               <ul className='flex flex-col items-center bg-primary p-4 sm:hidden'>
               <li className='py-2 hover:bg-amber-50'><a className='px-3 text-white font-bold text-sm md:text-xl' href='#products'>Productos</a></li>
               <li className='py-2 hover:bg-amber-50'><a className='px-3 text-white font-bold text-sm md:text-xl' href='/about'>Acerca de</a></li>

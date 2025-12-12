@@ -1,5 +1,5 @@
 import React from 'react';
-import productImg from '../assets/food/classic-burger.jpeg'
+import productImg from '../assets/food/burgers/classic-burger.jpeg'
 import addIcon from '../assets/icons/add.svg'
 
 const ProductCard: React.FC = () => {
@@ -15,7 +15,7 @@ const ProductCard: React.FC = () => {
 
                 <input
                     className='w-fit text-center border border-gray-300 rounded-md p-2 mx-2 focus:outline-none focus:ring-2 focus:bg-blue-100 focus:ring-blue-50 text-xl font-bold'
-                 type="number" name="quantity" id="quantity-input" title='cantidad' value={1} min={0} max={9}/>
+                 type="number" name="quantity" id="quantity-input" title='cantidad' value={1} min={0} max={9} onChange={() => console.log("Change")}/>
 
                 <button className='bg-blue-50 size-8 p-4 rounded-full cursor-pointer border-4 border-blue-300 flex flex-col items-center justify-center' title='Disminuir cantidad'>
                     <span className='font-bold text-lg md:text-2xl font-lilita'>+</span>

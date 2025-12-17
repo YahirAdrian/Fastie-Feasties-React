@@ -15,7 +15,7 @@ const Header: React.FC <HeaderProps> = ({setPanelOpen} : HeaderProps) => {
             <img src={logo} alt="Fastie-Feasties Logo" className='size-12 sm:size-16 shadow-2xl' />
             <h1 className='font-lilita text-white text-lg sm:text-2xl md:text-4xl'>Fastie-Feastie's</h1>
           </div>
-          <nav className='px-4'>
+          <nav className='px-4 py-4 flex items-center gap-4'>
             <ul className='full-menu justify-around items-center px-4 hidden sm:flex'>
               <li><a className='px-3 hover:text-amber-300 h-fit text-white font-bold text-sm md:text-xl' href='#products'>Productos</a></li>
               <li
@@ -23,8 +23,13 @@ const Header: React.FC <HeaderProps> = ({setPanelOpen} : HeaderProps) => {
               >
                 <a className='px-3 hover:text-amber-300 h-fit text-amber-200 font-bold text-sm md:text-xl' href='/order' onClick={e=> e.preventDefault()}>Tu orden</a>
               </li>
-              <li><a className='px-3 hover:text-amber-300 h-fit text-white font-bold text-sm md:text-xl' href='/about'>Acerca de</a></li>
-              <li><a className='px-3 hover:text-amber-300 h-fit text-white font-bold text-sm md:text-xl' href='/profile' title='Perfil'><img src={userIcon} className='size-8' alt='Icono usuario'></img></a></li>
+              <li><a className='px-3 hover:text-amber-300 h-fit text-white font-bold text-sm md:text-xl' href='/my-orders'>Ordenes</a></li>
+              <li>
+                <a className='px-3 hover:text-amber-300 h-fit text-white font-bold text-sm md:text-xl flex' href='/profile' title='Perfil'>
+                  <img src={userIcon} className='size-8' alt='Icono usuario'/>
+                  <span className='px-2'>Login</span>
+                </a>
+              </li>
             </ul>
 
 

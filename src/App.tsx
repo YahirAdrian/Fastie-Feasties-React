@@ -6,6 +6,7 @@ import ProductList from "./components/ProductList"
 import Footer from "./components/Footer"
 import OrderPanel from "./components/OrderPanel"
 import { useProducts } from "./hooks/useProducts"
+import { OrderProvider } from "./context/OrderContext"
 function App() {
 
   const [panelOpen, setPanelOpen] = useState(false);
@@ -20,22 +21,26 @@ function App() {
       <Header
         setPanelOpen={setPanelOpen}
       />
-      <OrderPanel
-        panelOpen={panelOpen}
-        setPanelOpen={setPanelOpen}
-       />
       <Banner />
       <Search />
-      {/* Render a ProductList for each unique category */}
-      {
-        productCategories.map((category, i) => (
-          <ProductList
+      <OrderProvider>
+        <OrderPanel
+          panelOpen={panelOpen}
+          setPanelOpen={setPanelOpen}
+          />
+        {
+          // Rednder a product List for each category
+          productCategories.map((category, i) => (
+            <ProductList
             key={i}
             category={category}
             products={products.filter(product => product.category == category)}
-          />
-        ))
-      }
+            panelOpen={panelOpen}
+            setPanelOpen={setPanelOpen}
+            />
+          ))
+        }
+      </OrderProvider>
       <Footer/>
     </>
   )

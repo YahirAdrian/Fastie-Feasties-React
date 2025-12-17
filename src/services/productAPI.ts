@@ -21,3 +21,4 @@ export async function getProducts() : Promise<Product[]> {
 
     return response
 }
+

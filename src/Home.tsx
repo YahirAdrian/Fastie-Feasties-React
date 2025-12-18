@@ -1,13 +1,16 @@
 import {useState} from "react"
+
 import Header from "./components/Header"
 import Banner from "./components/Banner"
 import Search from "./components/Search"
 import ProductList from "./components/ProductList"
 import Footer from "./components/Footer"
 import OrderPanel from "./components/OrderPanel"
+
+
 import { useProducts } from "./hooks/useProducts"
 import { OrderProvider } from "./context/OrderContext"
-function App() {
+function Home() {
 
   const [panelOpen, setPanelOpen] = useState(false);
   const { products } = useProducts();
@@ -46,4 +49,4 @@ function App() {
   )
 }
 
-export default App
+export default Home

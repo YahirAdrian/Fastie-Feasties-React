@@ -1,4 +1,6 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+
 import logo from '../assets/logo/logo-128.png';
 import userIcon from '../assets/icons/user.png';
 
@@ -12,8 +14,10 @@ const Header: React.FC <HeaderProps> = ({setPanelOpen} : HeaderProps) => {
     return (
         <header className='bg-primary flex justify-between p-2 fixed w-dvw z-1 shadow-xl shadow-black/30'>
           <div className='flex items-center gap-2'>
-            <img src={logo} alt="Fastie-Feasties Logo" className='size-12 sm:size-16 shadow-2xl' />
-            <h1 className='font-lilita text-white text-lg sm:text-2xl md:text-4xl'>Fastie-Feastie's</h1>
+            <NavLink className='flex items-center' to='/'>
+              <img src={logo} alt="Fastie-Feasties Logo" className='size-12 sm:size-16 shadow-2xl' />
+              <h1 className='font-lilita text-white text-lg sm:text-2xl md:text-4xl'>Fastie-Feastie's</h1>
+            </NavLink>
           </div>
           <nav className='px-4 py-4 flex items-center gap-4'>
             <ul className='full-menu justify-around items-center px-4 hidden sm:flex'>
@@ -25,10 +29,10 @@ const Header: React.FC <HeaderProps> = ({setPanelOpen} : HeaderProps) => {
               </li>
               <li><a className='px-3 hover:text-amber-300 h-fit text-white font-bold text-sm md:text-xl' href='/my-orders'>Ordenes</a></li>
               <li>
-                <a className='px-3 hover:text-amber-300 h-fit text-white font-bold text-sm md:text-xl flex' href='/profile' title='Perfil'>
+                <NavLink className='px-3 hover:text-amber-300 h-fit text-white font-bold text-sm md:text-xl flex' to='/login' title='Login'>
                   <img src={userIcon} className='size-8' alt='Icono usuario'/>
                   <span className='px-2'>Login</span>
-                </a>
+                </NavLink>
               </li>
             </ul>
 
@@ -52,10 +56,10 @@ const Header: React.FC <HeaderProps> = ({setPanelOpen} : HeaderProps) => {
               <li className='py-2 hover:bg-amber-50'><a className='px-3 text-white font-bold text-sm md:text-xl' href='#products'>Productos</a></li>
               <li className='py-2 hover:bg-amber-50'><a className='px-3 text-white font-bold text-sm md:text-xl' href='/about'>Acerca de</a></li>
               <li className='py-2 hover:bg-amber-50'>
-                <a className='px-3 text-white font-bold text-sm md:text-xl flex' href='/profile' title='Perfil'>
+                <NavLink className='px-3 text-white font-bold text-sm md:text-xl flex' to='/login' title='Login'>
                   <img src={userIcon} className='size-6' alt='Icono usuario'/>
-                  <span className='px-3'>Tu cuenta</span>
-                </a>
+                  <span className='px-3'>Login</span>
+                </NavLink>
               </li>
               </ul>
               </div>

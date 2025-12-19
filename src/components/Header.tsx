@@ -13,7 +13,6 @@ const Header: React.FC <HeaderProps> = ({setPanelOpen} : HeaderProps) => {
 
   const { user } = useAuth();
   const location = useLocation(); 
-  console.log(user)
   const [menuOpen, setMenuOpen] = React.useState(false);
     return (
         <header className='bg-primary flex justify-between p-2 fixed w-dvw z-1 shadow-xl shadow-black/30'>

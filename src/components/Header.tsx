@@ -1,8 +1,9 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 
 import logo from '../assets/logo/logo-128.png';
 import userIcon from '../assets/icons/user.png';
+import { useAuth } from '../hooks/useAuth';
 
 interface HeaderProps {
     setPanelOpen: React.Dispatch<React.SetStateAction<boolean>>
@@ -10,6 +11,9 @@ interface HeaderProps {
 
 const Header: React.FC <HeaderProps> = ({setPanelOpen} : HeaderProps) => {
 
+  const { user } = useAuth();
+  const location = useLocation(); 
+  console.log(user)
   const [menuOpen, setMenuOpen] = React.useState(false);
     return (
         <header className='bg-primary flex justify-between p-2 fixed w-dvw z-1 shadow-xl shadow-black/30'>
@@ -21,18 +25,28 @@ const Header: React.FC <HeaderProps> = ({setPanelOpen} : HeaderProps) => {
           </div>
           <nav className='px-4 py-4 flex items-center gap-4'>
             <ul className='full-menu justify-around items-center px-4 hidden sm:flex'>
-              <li><a className='px-3 hover:text-amber-300 h-fit text-white font-bold text-sm md:text-xl' href='#products'>Productos</a></li>
               <li
+                className={location.pathname === '/profile'? 'hidden' : ''}
                 onClick={()=> setPanelOpen(true)}
               >
                 <a className='px-3 hover:text-amber-300 h-fit text-amber-200 font-bold text-sm md:text-xl' href='/order' onClick={e=> e.preventDefault()}>Tu orden</a>
               </li>
-              <li><a className='px-3 hover:text-amber-300 h-fit text-white font-bold text-sm md:text-xl' href='/my-orders'>Ordenes</a></li>
+              <li><a className='px-3 hover:text-amber-300 h-fit text-white font-bold text-sm md:text-xl' href='/my-orders'>Tus ordenes</a></li>
               <li>
-                <NavLink className='px-3 hover:text-amber-300 h-fit text-white font-bold text-sm md:text-xl flex' to='/login' title='Login'>
-                  <img src={userIcon} className='size-8' alt='Icono usuario'/>
-                  <span className='px-2'>Login</span>
-                </NavLink>
+                {
+                  !user ? (
+                  <NavLink className='px-3 hover:text-amber-300 h-fit text-white font-bold text-sm md:text-xl flex' to='/login' title='Login'>
+                    <img src={userIcon} className='size-8' alt='Icono usuario'/>
+                    <span className='px-2'>Login</span>
+                  </NavLink>
+
+                  ): (
+                    <NavLink className='px-3 hover:text-amber-300 h-fit text-white font-bold text-sm md:text-xl flex' to='/profile' title='Login'>
+                    <img src={userIcon} className='size-8' alt='Icono usuario'/>
+                    <span className='px-2'>{user.name}</span>
+                  </NavLink>
+                  )
+                }
               </li>
             </ul>
 

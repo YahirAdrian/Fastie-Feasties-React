@@ -12,7 +12,7 @@ import { useProducts } from "./hooks/useProducts"
 import { OrderProvider } from "./context/OrderContext"
 function Home() {
 
-  const [panelOpen, setPanelOpen] = useState(false);
+  const [panelOpen, setPanelOpen] = useState<boolean>(false);
   const { products } = useProducts();
 
   // Sort products by category

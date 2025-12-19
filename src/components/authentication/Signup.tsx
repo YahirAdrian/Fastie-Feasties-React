@@ -1,14 +1,18 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 import AuthHeader from './AuthHeader';
 
 import backgroundImage from '../../assets/background/login-background.jpg';
 import { signup } from '../../services/authAPI';
+import { useAuth } from '../../hooks/useAuth';
 
 
 
 const Signup: React.FC = () =>{
+
+    const { login : authLogin} = useAuth();
+    const navigate = useNavigate()
 
     const [userName, setUserName] = React.useState('');
     const [email, setEmail] = React.useState('');
@@ -27,8 +31,11 @@ const Signup: React.FC = () =>{
         e.preventDefault();
         // Send the data to the API
         try{
-            const result = await signup(userName, email, password)
-            console.log(result);
+            const {user, token} = await signup(userName, email, password)
+            if(user && token){
+                authLogin(user, token)
+                navigate('/')
+            }
         }catch(error){
             console.error("Signup failed: ", error);
         }
@@ -96,7 +103,7 @@ const Signup: React.FC = () =>{
 
                     <p className="text-center text-sm text-gray-600 mt-4">
                         ¿Ya tienes cuenta?{' '}
-                        <NavLink to="/signup" className="text-blue-600 hover:underline">
+                        <NavLink to="/login" className="text-blue-600 hover:underline">
                             Iniciar sesión
                         </NavLink>
                     </p>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import AuthHeader from './AuthHeader';
 
@@ -7,8 +8,12 @@ import { login } from '../../services/authAPI';
 import backgroundImage from '../../assets/background/login-background.jpg';
 
 import { NavLink } from 'react-router-dom';
+import { useAuth } from '../../hooks/useAuth';
 
 const Login: React.FC = ()=>{
+
+    const { login : authLogin } = useAuth();
+    const navigate = useNavigate();
 
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
@@ -26,8 +31,11 @@ const Login: React.FC = ()=>{
 
         // Send the data to the API
         try{
-            const result = await login(email, password)
-            console.log(result);
+            const { user, token } = await login(email, password)
+            if(user && token){
+                authLogin(user, token)
+                navigate('/')
+            }
         }catch(error){
             console.error("Login failed: ", error);
         }

@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import { useAuth } from '../../hooks/useAuth';
 import { NavLink, useNavigate } from 'react-router-dom';
 import Header from '../Header';
+import AuthHeader from './AuthHeader';
 
 const Profile: React.FC = () =>{
 
-    const [panelOpen, setPanelOpen] = useState<boolean>(false);
+    // const [panelOpen, setPanelOpen] = useState<boolean>(false);  
 
     const defaultUserPic = "https://ui-avatars.com/api/?name=User&background=0D8ABC&color=fff";
 
@@ -22,7 +23,7 @@ const Profile: React.FC = () =>{
         // Optionally, you could redirect to login or show "not logged in"
         return (
             <>
-            <Header setPanelOpen={setPanelOpen} />
+            <AuthHeader />
             <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
                 <div className="bg-white shadow-lg rounded-lg p-8">
                     <h2 className="text-2xl text-gray-700 font-lilita mb-4">No has iniciado sesión</h2>
@@ -41,7 +42,7 @@ const Profile: React.FC = () =>{
     
     return (
         <>
-            <Header setPanelOpen={setPanelOpen} />
+            <AuthHeader />
             <div className="flex items-center justify-center min-h-screen bg-gray-100">
                 <div className="w-full max-w-md bg-white rounded-xl shadow-lg shadow-black px-8 py-12 border-4 border-primary-500 flex flex-col items-center">
                     <img

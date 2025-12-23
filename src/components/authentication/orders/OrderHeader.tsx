@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import logo from '../../../assets/logo/logo-128.png';
 import userIcon from '../../../assets/icons/user.png';
@@ -10,7 +10,7 @@ import { useAuth } from '../../../hooks/useAuth';
 const Header: React.FC = () => {
 
   const { user } = useAuth();
-  const location = useLocation(); 
+  // const location = useLocation(); 
   const [menuOpen, setMenuOpen] = React.useState(false);
     return (
         <>

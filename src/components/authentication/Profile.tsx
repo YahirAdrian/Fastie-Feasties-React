@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useAuth } from '../../hooks/useAuth';
 import { NavLink, useNavigate } from 'react-router-dom';
-import Header from '../Header';
 import AuthHeader from './AuthHeader';
 
 const Profile: React.FC = () =>{

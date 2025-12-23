@@ -1,15 +1,13 @@
 import React from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 
-import logo from '../assets/logo/logo-128.png';
-import userIcon from '../assets/icons/user.png';
-import { useAuth } from '../hooks/useAuth';
+import logo from '../../../assets/logo/logo-128.png';
+import userIcon from '../../../assets/icons/user.png';
+import { useAuth } from '../../../hooks/useAuth';
 
-interface HeaderProps {
-    setPanelOpen: React.Dispatch<React.SetStateAction<boolean>>
-}
 
-const Header: React.FC <HeaderProps> = ({setPanelOpen} : HeaderProps) => {
+
+const Header: React.FC = () => {
 
   const { user } = useAuth();
   const location = useLocation(); 
@@ -26,13 +24,7 @@ const Header: React.FC <HeaderProps> = ({setPanelOpen} : HeaderProps) => {
             </div>
             <nav className='px-4 py-4 flex items-center gap-4'>
               <ul className='full-menu justify-around items-center px-4 hidden sm:flex'>
-                <li
-                  className={location.pathname === '/profile'? 'hidden' : ''}
-                  onClick={()=> setPanelOpen(true)}
-                >
-                  <a className='px-3 hover:text-amber-300 h-fit text-amber-200 font-bold text-sm md:text-xl' href='/order' onClick={e=> e.preventDefault()}>Tu orden</a>
-                </li>
-                <li><a className='px-3 hover:text-amber-300 h-fit text-white font-bold text-sm md:text-xl' href='/my-orders'>Tus ordenes</a></li>
+                <li><a className='px-3 hover:text-amber-300 h-fit text-amber-200 font-bold text-sm md:text-xl' href='/my-orders'>Tus ordenes</a></li>
                 <li>
                   {
                     !user ? (
@@ -55,8 +47,7 @@ const Header: React.FC <HeaderProps> = ({setPanelOpen} : HeaderProps) => {
               {/* Mobile menu */}
               <div className='flex sm:hidden items-center'>
                 <li className='list-none'
-                  onClick={()=> setPanelOpen(true)}
-                >
+                >s
                   <a className='px-3 text-amber-200 font-bold text-sm md:text-xl' href='/order' onClick={e=> e.preventDefault()}>Tu orden</a>
                 </li>
                 <button className='text-white p-2' onClick={() => setMenuOpen(!menuOpen)}>

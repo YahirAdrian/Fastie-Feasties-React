@@ -28,7 +28,7 @@ const Profile: React.FC = () =>{
                     <h2 className="text-2xl text-gray-700 font-lilita mb-4">No has iniciado sesión</h2>
                     <NavLink
                         to="/login"
-                        className="px-4 py-2 bg-primary-500 text-white rounded-lg font-semibold hover:bg-primary-400 transition"
+                        className="px-4 py-2 bg-blue-400 text-white rounded-lg font-semibold hover:bg-blue-500 transition"
                     >
                         Iniciar sesión
                     </NavLink>
@@ -54,14 +54,14 @@ const Profile: React.FC = () =>{
 
                     <NavLink
                         to="/my-orders"
-                        className="w-full mb-4 px-4 py-2 text-center bg-primary-500 text-white rounded-lg font-semibold hover:bg-primary-400 transition"
+                        className="w-full mb-4 px-4 py-2 text-center bg-accent-500 text-white rounded-lg font-semibold hover:bg-accent-600 transition"
                     >
                         Ver mis órdenes
                     </NavLink>
 
                     <button
                         onClick={handleLogout}
-                        className="w-full px-4 py-2 bg-red-500 text-white rounded-lg font-semibold hover:bg-red-400 transition"
+                        className="w-full px-4 py-2 bg-red-600 text-white rounded-lg font-semibold hover:bg-red-400 transition"
                     >
                         Cerrar sesión
                     </button>

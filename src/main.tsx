@@ -18,25 +18,20 @@ createRoot(document.getElementById('root')!).render(
     <BrowserRouter>
     <AuthProvider>
       <ProductProvider>
-            <Routes>
-              <Route path="/" element={<Home />} />
-            </Routes>
-        </ProductProvider>
-
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
         </Routes>
-        <ProductProvider>
-          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/login' element={<Login />} />
-            <Route path='/signup' element={<Signup />} />
-            <Route path='/profile' element={<Profile />} />
-            <Route path='/my-orders' element={<UserOrders />} />
-          </Routes>
-        </ProductProvider>
-      </AuthProvider>
+
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/signup' element={<Signup />} />
+          <Route path='/profile' element={<Profile />} />
+          <Route path='/my-orders' element={<UserOrders />} />
+        </Routes>
+      </ProductProvider>
+    </AuthProvider>
     </BrowserRouter>
   </StrictMode>,
 )
